@@ -26,6 +26,11 @@
         One: 'That's great. Well, you better get going. You don't want to be late.'
         Two: 'I'll see you next time.'
         One: 'Sure.' Bye.'`;
+    
+     let text2 = text.replace(/'/g, '"');
+    console.log(text2);
+    console.log(text2.match(/\b"\b/ig));
+    document.getElementById('out').innerText = text2.replace(/\b"\b/ig, "'");
 </script>
 </body>
 </html>
