@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.header {
+  justify-content: space-around;
+  align-items: center;
+  background-color: #c400ff;
+  height: 100px;
+}
+.header__logo {
+  text-transform: uppercase;
+  font-size: 20px;
+  color: darkblue;
+  font-weight: 700;
+}
+.header__menu_list {
+  list-style-type: none;
+  padding: 10px 20px;
+}
+.header__menu_link {
+  font-size: 16px;
+  color: darkblue;
+}
+
+.basket {
+  display: flex;
+  position: relative;
+}
+.basket-button {
+  border-radius: 10px;
+  width: 250px;
+  height: 35px;
+}
+.basket-button-block {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.62);
+  border-radius: 5px;
+  box-sizing: border-box;
+  right: 0;
+  top: 130%;
+  position: absolute;
+  background-color: white;
+  padding: 20px;
+  color: black;
+  width: 300px;
+}
+
+/*# sourceMappingURL=style.css.map */
