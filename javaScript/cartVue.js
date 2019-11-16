@@ -109,7 +109,7 @@ Vue.component('basket-item', {
         <button class="button basket-item_button" @click="$emit('add-quantity-diminish', cart.id)"
                 type="button">-</button>
         <button class="button basket-item_button basket-item_button_delete"
-                @click="$emit('handle-delete-click', cart.id)" type="button">x</button>
+                @click="$emit('handle-delete-click', cart.id)" type="button">&times;</button>
         </div>
     </div>
     `
