@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <title>Магазин</title>
     <link rel="stylesheet" href="style/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
 </head>
-<body id="all">
+<body>
+<div id="app">
 <div class="header flex">
     <div class="header__logo">
-        <a href="#">Интернет Магазин</a>
+        <a  class="header__logo_a" href="#">Интернет Магазин</a>
     </div>
     <div class="header__menu">
         <ul class="header__menu_ul flex">
@@ -18,11 +21,18 @@
             <li class="header__menu_list"><a class="header__menu_link" href="#">link 4</a></li>
         </ul>
     </div>
-    <basket ref="cart"></basket>
+    <basket ref="basket"></basket>
 </div>
 <main>
 
+    <catalog ref="catalog"></catalog>
 </main>
-
+    <error ref="error"></error>
+</div>
+<script src="javaScript/FilterComp.js" ></script>
+<script src="javaScript/ErrorComp.js" ></script>
+<script src="javaScript/catalogVue.js" ></script>
+<script src="javaScript/cartVue.js" ></script>
+<script src="javaScript/sharedFile.js" defer></script>
 </body>
 </html>
