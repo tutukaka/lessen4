@@ -11,9 +11,8 @@ Vue.component('catalog', {
         handleSearchClick(value) {
             const regexp = new RegExp(value, 'i');
             this.filteredItems = this.items.filter((item) => {
-                regexp.test(item.title);
+                return regexp.test(item.title);
             });
-            value = '';
         },
 
     },

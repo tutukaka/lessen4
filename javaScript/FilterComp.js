@@ -6,8 +6,10 @@ Vue.component('filtered', {
    },
     methods:{
         filterQuery(value){
-            this.$root.$refs.catalog.handleSearchClick(value)
-        }
+            this.$root.$refs.catalog.handleSearchClick(value);
+            this.query = ''
+        },
+
     },
     template: `
     <form class="root__search flex" action="#">
