@@ -54,7 +54,6 @@ Vue.component('basket', {
         handleDeleteClick(id) {
             fetch(`/cart/${id}`, {
                 method: 'DELETE',}).then(() => {
-                console.log(this.basket = this.basket.filter((item) => item.id !== id));
                 this.basket = this.basket.filter((item) => item.id !== id);
             });
         },
@@ -69,6 +68,9 @@ Vue.component('basket', {
             });
     },
     computed: {
+        total() {
+            return this.basket.reduce((acc, item) => acc + item.quantity * item.price, 0);
+        }
     },
     template:`
         <div class="basket">
@@ -88,7 +90,7 @@ Vue.component('basket', {
                     @handle-delete-click="handleDeleteClick"
                     >
                 </basket-item>
-                <p v-if="basket.length">Общая стоимость товаров:</p>
+                <p v-if="basket.length">Общая стоимость: {{ total }}р</p>
             </div>
         </div>
 `
@@ -101,10 +103,9 @@ Vue.component('basket-item', {
         <img class="basket-item_img"  :src="img" alt="photo">
         <div class="basket-item_text">
         <h3  class="basket-item_text_h3">{{ cart.title }}</h3>
-        <p class="basket-item_text_p">цена: {{ cart.price }}р</p>
+        <p class="basket-item_text_p">{{ cart.quantity }}товаров по {{ cart.price }}р</p>
         <button class="button basket-item_button" @click="$emit('handle-buy-click', cart)"
                 type="button">+</button>
-        <div class="quantity_out">{{ cart.quantity }}</div>
         <button class="button basket-item_button" @click="$emit('add-quantity-diminish', cart.id)"
                 type="button">-</button>
         <button class="button basket-item_button basket-item_button_delete"

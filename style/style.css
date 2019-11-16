@@ -30,13 +30,15 @@ a {
 .header {
   justify-content: space-around;
   align-items: center;
-  background-color: #c400ff;
+  background-color: #aeaeae;
   height: 100px;
 }
 .header__logo {
-  text-transform: uppercase;
   font-size: 20px;
+}
+.header__logo_a {
   color: darkblue;
+  text-transform: uppercase;
   font-weight: 700;
 }
 .header__menu_list {
@@ -129,11 +131,8 @@ a {
   height: 18px;
   margin-left: 50px;
 }
-
-.quantity_out {
-  width: 30px;
-  float: right;
-  display: contents;
+.basket-item_total {
+  margin: 20px 0 0;
 }
 
 .catalog {

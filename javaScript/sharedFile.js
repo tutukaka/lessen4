@@ -1,4 +1,8 @@
-
+/*
+сервер запусккается в Node js  из терминала редактора
+при помощи команд
+json-server --watch db.json --port 3012 --static ./
+*/
 
 const app = new Vue({
    el: '#app',
@@ -12,7 +16,6 @@ const app = new Vue({
                     console.log(error);
                 })
         },
-
     },
     mounted(){
         console.log('root', this)
