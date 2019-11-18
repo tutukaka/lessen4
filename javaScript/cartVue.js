@@ -16,7 +16,6 @@ Vue.component('basket', {
                 }
             }
             //если нет добавляет товар в корзину
-            // item.quantity = 1;
             let prod = Object.assign({quantity: 1}, item);
             this.basket.push(prod);
             return fetch(`cart`, {
@@ -29,19 +28,14 @@ Vue.component('basket', {
         },
         addQuantityAdd(id, i){
             this.basket[i].quantity++;
-            return fetch(`/cart/${id}`, {
-                method: 'PATCH',
-                body: JSON.stringify({quantity: this.basket[i].quantity}),
-                headers: {
-                    'Content-type': 'application/json',
-                },
-            })
+            this.updateQuantityServer(id, i);
         },
         addQuantityDiminish(id){
             for (let i = 0; i < this.basket.length; i++) {
                 if (this.basket[i].id === id) {
                     if (this.basket[i].quantity > 1) {
                         this.basket[i].quantity--;
+                        this.updateQuantityServer(id, i);
                         return false
                     } else if (confirm('Вы действительно хотите удалить товар из корзины?')) {
                         return this.handleDeleteClick(id);
@@ -51,12 +45,24 @@ Vue.component('basket', {
                 }
             }
         },
+        //обновляет количество товара на сервере
+        updateQuantityServer(id, i){
+            return fetch(`/cart/${id}`, {
+                method: 'PATCH',
+                body: JSON.stringify({quantity: this.basket[i].quantity}),
+                headers: {
+                    'Content-type': 'application/json',
+                },
+            })
+        },
+        //удаляет товар с сервера
         handleDeleteClick(id) {
-            fetch(`/cart/${id}`, {
+            return fetch(`/cart/${id}`, {
                 method: 'DELETE',}).then(() => {
                 this.basket = this.basket.filter((item) => item.id !== id);
             });
         },
+
         quantityItemBasket(){
             return this.basket.length
         },
